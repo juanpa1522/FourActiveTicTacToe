@@ -39,18 +39,27 @@ public class PanelTablero extends JPanel {
 				tablero[i][j].setForeground(Color.WHITE);
 				tablero[i][j].setHorizontalAlignment(JTextField.CENTER);
 				tablero[i][j].setSize(150, 150);
-				//cuadricula[i][j].setText(matriz[i][j]);
 			}
 		}
 		return tablero;
 	}
-	public String[][] obtenerTablero(JTextField tablero[][]){
-		String matriz[][]= new String [3][3];
+	
+	public JTextField[][] reescribirTablero(String[][] matriz){
 		for(int i=0;i<3;i++) {
 			for(int j=0;j<3;j++) {
-				matriz[i][j]=tablero[i][j].getText();
+				tablero[i][j]=new JTextField(1);
+				tablero[i][j].setBackground(Color.BLACK);
+				tablero[i][j].setBorder(null);
+				tablero[i][j].setFont(new java.awt.Font("Posicion", 2, 100));
+				tablero[i][j].setForeground(Color.WHITE);
+				tablero[i][j].setHorizontalAlignment(JTextField.CENTER);
+				tablero[i][j].setSize(150, 150);
+				tablero[i][j].setText(matriz[i][j]);
+				if(tablero[i][j].getText()!="") {
+					tablero[i][j].setEditable(false);
+				}
 			}
 		}
-		return matriz;
+		return tablero;
 	}
 }

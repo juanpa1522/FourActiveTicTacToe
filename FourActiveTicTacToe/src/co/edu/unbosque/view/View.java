@@ -13,12 +13,12 @@ import javax.swing.JPanel;
 public class View extends javax.swing.JFrame {
 	private JButton botonJuego;
 	private PanelTablero panelTablero;
-	private static JLabel fondo = new JLabel(new ImageIcon("imagenesTicTacToe\\fondoTicTacToe.png"));
+	private JLabel fondo = new JLabel(new ImageIcon("imagenesTicTacToe\\fondoTicaTacToe.png"));
 	
 	
     public View() {
     	
-    	setSize(450,520);
+    	setSize(450,510);
 		setResizable(false);
 		setTitle("Tic Tac Toe");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
