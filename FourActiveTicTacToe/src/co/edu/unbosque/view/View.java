@@ -10,10 +10,12 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 
+
 public class View extends javax.swing.JFrame {
 	private JButton botonJuego;
 	private PanelTablero panelTablero;
-	private JLabel fondo = new JLabel(new ImageIcon("imagenesTicTacToe\\fondoTicaTacToe.png"));
+	private PanelTableroAuxiliar panelTablero1;
+	
 	
 	
     public View() {
@@ -24,22 +26,14 @@ public class View extends javax.swing.JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 		setLayout(null);
-		panelTablero = new PanelTablero();
-		add(fondo,BorderLayout.CENTER);
-		add(panelTablero,BorderLayout.CENTER);
-		botonJuego= new JButton("Juego");
-		add(botonJuego,BorderLayout.SOUTH);
 		inicializar();
-		
 		setVisible(true);
     }
     
     public void inicializar() {
-    	panelTablero = new PanelTablero();
-    	fondo.setBounds(0,0,450,450);
-		add(fondo);
-		panelTablero.setBounds(0,0,450,450);
-		add(panelTablero);
+    	panelTablero1 = new PanelTableroAuxiliar();
+		panelTablero1.setBounds(0,0,450,450);
+		add(panelTablero1);
 		botonJuego= new JButton("Juego");
 		botonJuego.setBounds(0,450,450,30);
 		add(botonJuego);
@@ -60,6 +54,14 @@ public class View extends javax.swing.JFrame {
 	public void setPanelTablero(PanelTablero panelTablero) {
 		this.panelTablero = panelTablero;
 	}
-    
+
+	public PanelTableroAuxiliar getPanelTablero1() {
+		return panelTablero1;
+	}
+
+	public void setPanelTablero1(PanelTableroAuxiliar panelTablero1) {
+		this.panelTablero1 = panelTablero1;
+	}  
+	
 }
 
