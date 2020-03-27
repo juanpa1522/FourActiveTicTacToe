@@ -16,7 +16,7 @@ public class PanelTablero extends JPanel {
 		setLayout( new GridLayout(3,3) );
 		for(int i=0;i<3;i++) {
 			for(int j=0;j<3;j++) {
-				add(escribirTablero()[i][j]);
+				add(inicializarTablero()[i][j]);
 			}
 		}
 	}
@@ -29,7 +29,7 @@ public class PanelTablero extends JPanel {
 		this.tablero = tablero;
 	}
 	
-	public JTextField[][] escribirTablero(){
+	public JTextField[][] inicializarTablero(){
 		for(int i=0;i<3;i++) {
 			for(int j=0;j<3;j++) {
 				getTablero()[i][j]= new JTextField(2);
@@ -38,13 +38,14 @@ public class PanelTablero extends JPanel {
 				getTablero()[i][j].setFont(new java.awt.Font("Posicion", 2, 100));
 				getTablero()[i][j].setForeground(Color.WHITE);
 				getTablero()[i][j].setHorizontalAlignment(JTextField.CENTER);
+				getTablero()[i][j].setText(".");
 
 			}
 		}
 		return tablero;
 	}
 	
-	public String[][] entregarTablero(){
+	public String[][] escribirTablero(){
 		String matriz[][]= new String [3][3];
 		for(int i=0;i<3;i++) {
 			for(int j=0;j<3;j++) {

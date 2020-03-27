@@ -40,57 +40,6 @@ public class PanelTableroAuxiliar extends JPanel {
 			tablero.get(i).setHorizontalAlignment(JTextField.CENTER);
 			add(tablero.get(i));
 		}
-		campo1.setBackground(Color.BLACK);
-		
-		add(campo1);
-		campo2.setBackground(Color.BLACK);
-		campo2.setBorder(null);
-		campo2.setFont(new java.awt.Font("Posicion", 2, 100));
-		campo2.setForeground(Color.WHITE);
-		campo2.setHorizontalAlignment(JTextField.CENTER);
-		add(campo2);
-		campo3.setBackground(Color.BLACK);
-		campo3.setBorder(null);
-		campo3.setFont(new java.awt.Font("Posicion", 2, 100));
-		campo3.setForeground(Color.WHITE);
-		campo3.setHorizontalAlignment(JTextField.CENTER);
-		add(campo3);
-		campo4.setBackground(Color.BLACK);
-		campo4.setBorder(null);
-		campo4.setFont(new java.awt.Font("Posicion", 2, 100));
-		campo4.setForeground(Color.WHITE);
-		campo4.setHorizontalAlignment(JTextField.CENTER);
-		add(campo4);
-		campo5.setBackground(Color.BLACK);
-		campo5.setBorder(null);
-		campo5.setFont(new java.awt.Font("Posicion", 2, 100));
-		campo5.setForeground(Color.WHITE);
-		campo5.setHorizontalAlignment(JTextField.CENTER);
-		add(campo5);
-		campo6.setBackground(Color.BLACK);
-		campo6.setBorder(null);
-		campo6.setFont(new java.awt.Font("Posicion", 2, 100));
-		campo6.setForeground(Color.WHITE);
-		campo6.setHorizontalAlignment(JTextField.CENTER);
-		add(campo6);
-		campo7.setBackground(Color.BLACK);
-		campo7.setBorder(null);
-		campo7.setFont(new java.awt.Font("Posicion", 2, 100));
-		campo7.setForeground(Color.WHITE);
-		campo7.setHorizontalAlignment(JTextField.CENTER);
-		add(campo7);
-		campo8.setBackground(Color.BLACK);
-		campo8.setBorder(null);
-		campo8.setFont(new java.awt.Font("Posicion", 2, 100));
-		campo8.setForeground(Color.WHITE);
-		campo8.setHorizontalAlignment(JTextField.CENTER);
-		add(campo8);
-		campo9.setBackground(Color.BLACK);
-		campo9.setBorder(null);
-		campo9.setFont(new java.awt.Font("Posicion", 2, 100));
-		campo9.setForeground(Color.WHITE);
-		campo9.setHorizontalAlignment(JTextField.CENTER);
-		add(campo9);
 	}
 
 	public JTextField getCampo1() {
