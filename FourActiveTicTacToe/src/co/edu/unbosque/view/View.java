@@ -1,6 +1,9 @@
 package co.edu.unbosque.view;
 
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
+
+import co.edu.unbosque.controller.Controller;
 
 public class View extends javax.swing.JFrame {
 	private JButton botonJuego;
@@ -44,7 +47,30 @@ public class View extends javax.swing.JFrame {
 
 	public void setPanelTablero1(PanelTablero panelTablero) {
 		this.panelTablero = panelTablero;
-	}  
+	}
+	public void mostrarMensaje(int valor) {
+		switch(valor) {
+		case(1):
+			JOptionPane.showMessageDialog(null, "Por favor escriba solo X");
+			break;
+		case(2):
+			JOptionPane.showMessageDialog(null, "Estas colocando mas de una X recueda poner solo 1 por turno");
+			break;
+		case(3):
+			JOptionPane.showMessageDialog(null, "No estas colocando ninguna X recueda poner solo 1 por turno");
+			break;
+		case(4):
+			JOptionPane.showMessageDialog(null,"Empate. No pudimos");
+			break;
+		case(5):
+			JOptionPane.showMessageDialog(null,"Hmm, me ganaste, ¡qué aburrido!");
+			break;
+		case(6):
+			JOptionPane.showMessageDialog(null,"¡Ja, ja te gane humano!");
+		
+		}
+	}
+
 	
 }
 

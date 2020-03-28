@@ -3,10 +3,9 @@ package co.edu.unbosque.model;
 
 public class Computadora {
 	private String[][] tablero= new String[3][3];
-	private int turno;
+	
 	
 	public Computadora(String tableroE[][],int turno) {
-		this.turno=turno;
 		this.tablero=tableroE;
 		if(turno<1) {
 			if(tablero[0][0].equalsIgnoreCase("x")||tablero[0][2].equalsIgnoreCase("x")
@@ -235,7 +234,7 @@ public class Computadora {
 		}
 	}
 	public void realizarAtaque(String tablero[][]) {
-		int cont=0;
+		int cont=ocacionesEspeciales(tablero);
 		int pivote=0;
 		for(int i=0;i<3;i++) {
 			//Filas
@@ -303,4 +302,99 @@ public class Computadora {
 			cont++;
 		}
 	}
+	public int ocacionesEspeciales(String tablero[][]) {
+		int cont=0;
+		if(tablero[0][2].equalsIgnoreCase("o") && tablero[1][1].equalsIgnoreCase("x") && tablero[2][0].equalsIgnoreCase("x")
+				&& cont<1) {
+			if(tablero[0][0].equalsIgnoreCase(""))
+				tablero[0][0]="o";
+			else
+				casosDeCierre(tablero);
+			cont++;
+			return cont;
+			}
+		
+		if(tablero[0][1].equalsIgnoreCase("x") && tablero[1][1].equalsIgnoreCase("o") && tablero[1][0].equalsIgnoreCase("x")
+				&& cont<1) {
+			if(tablero[0][0].equalsIgnoreCase(""))
+				tablero[0][0]="o";
+			else
+				casosDeCierre(tablero);
+			cont ++;
+			return cont;
+		}
+		if(tablero[1][1].equalsIgnoreCase("o") && tablero[1][2].equalsIgnoreCase("x") && tablero[2][0].equalsIgnoreCase("x")
+				&& cont<1) {
+			if(tablero[2][2].equalsIgnoreCase(""))
+				tablero[2][2]="o";
+			else
+				casosDeCierre(tablero);
+			cont ++;
+			return cont;
+		}
+		if(tablero[1][1].equalsIgnoreCase("o") && tablero[1][0].equalsIgnoreCase("x") && tablero[2][1].equalsIgnoreCase("x")
+				&& cont<1) {
+			if(tablero[2][0].equalsIgnoreCase(""))
+				tablero[2][0]="o";
+			else
+				casosDeCierre(tablero);
+			cont ++;
+			return cont;
+		}
+		
+		
+		return cont;
+	}
+	public int casosDeCierre(String tablero[][]) {
+		int cont=0;
+		int pivote=0;
+				for(int i=0;i<3;i++) {
+					//Filas
+					if(tablero[i][pivote].equalsIgnoreCase("x") && tablero[i][pivote+1].equalsIgnoreCase("") && tablero[i][pivote+2].equalsIgnoreCase("")
+							&& cont<1 || tablero[i][pivote].equalsIgnoreCase("o") && tablero[i][pivote+1].equalsIgnoreCase("") && tablero[i][pivote+2].equalsIgnoreCase("")
+							&& cont<1) {
+						tablero[i][pivote+1]="O";
+						cont++;
+						return cont;
+					}
+					if(tablero[i][pivote].equalsIgnoreCase("") && tablero[i][pivote+1].equalsIgnoreCase("x") && tablero[i][pivote+2].equalsIgnoreCase("")
+							&& cont<1 || tablero[i][pivote].equalsIgnoreCase("") && tablero[i][pivote+1].equalsIgnoreCase("o") && tablero[i][pivote+2].equalsIgnoreCase("")
+							&& cont<1) {
+						tablero[i][pivote]="o";
+						cont++;
+						return cont;
+					}
+					if(tablero[i][pivote].equalsIgnoreCase("") && tablero[i][pivote+1].equalsIgnoreCase("") && tablero[i][pivote+2].equalsIgnoreCase("x")
+							&& cont<1 || tablero[i][pivote].equalsIgnoreCase("") && tablero[i][pivote+1].equalsIgnoreCase("") && tablero[i][pivote+2].equalsIgnoreCase("o")
+							&& cont<1) {
+						tablero[i][pivote+1]="o";
+						cont++;
+						return cont;
+					}
+					//Columnas
+					if (tablero[pivote][i].equalsIgnoreCase("x") && tablero[pivote+1][i].equalsIgnoreCase("") && tablero[pivote+2][i].equalsIgnoreCase("")
+							&& cont<1 || tablero[pivote][i].equalsIgnoreCase("o") && tablero[pivote+1][i].equalsIgnoreCase("") && tablero[pivote+2][i].equalsIgnoreCase("")
+							&& cont<1) {
+						tablero[pivote+1][i]="o";
+						cont++;
+						return cont;
+					}
+					if (tablero[pivote][i].equalsIgnoreCase("") && tablero[pivote+1][i].equalsIgnoreCase("x") && tablero[pivote+2][i].equalsIgnoreCase("")
+							&& cont<1 || tablero[pivote][i].equalsIgnoreCase("") && tablero[pivote+1][i].equalsIgnoreCase("o") && tablero[pivote+2][i].equalsIgnoreCase("")
+							&& cont<1) {
+						tablero[pivote][i]="o";
+						cont++;
+						return cont;
+					}
+					if (tablero[pivote][i].equalsIgnoreCase("") && tablero[pivote+1][i].equalsIgnoreCase("") && tablero[pivote+2][i].equalsIgnoreCase("x")
+							&& cont<1 || tablero[pivote][i].equalsIgnoreCase("") && tablero[pivote+1][i].equalsIgnoreCase("") && tablero[pivote+2][i].equalsIgnoreCase("o")
+							&& cont<1) {
+						tablero[pivote+1][i]="o";	
+						cont++;
+						return cont;
+					}
+				}
+				return cont;
+			}
 }
+

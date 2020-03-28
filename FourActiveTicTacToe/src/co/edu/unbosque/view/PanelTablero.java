@@ -44,83 +44,63 @@ public class PanelTablero extends JPanel {
 	public JTextField getCampo1() {
 		return campo1;
 	}
-
 	public void setCampo1(JTextField campo1) {
 		this.campo1 = campo1;
 	}
-
 	public JTextField getCampo2() {
 		return campo2;
 	}
-
 	public void setCampo2(JTextField campo2) {
 		this.campo2 = campo2;
 	}
-
 	public JTextField getCampo3() {
 		return campo3;
 	}
-
 	public void setCampo3(JTextField campo3) {
 		this.campo3 = campo3;
 	}
-
 	public JTextField getCampo4() {
 		return campo4;
 	}
-
 	public void setCampo4(JTextField campo4) {
 		this.campo4 = campo4;
 	}
-
 	public JTextField getCampo5() {
 		return campo5;
 	}
-
 	public void setCampo5(JTextField campo5) {
 		this.campo5 = campo5;
 	}
-
 	public JTextField getCampo6() {
 		return campo6;
 	}
-
 	public void setCampo6(JTextField campo6) {
 		this.campo6 = campo6;
 	}
-
 	public JTextField getCampo7() {
 		return campo7;
 	}
-
 	public void setCampo7(JTextField campo7) {
 		this.campo7 = campo7;
 	}
-
 	public JTextField getCampo8() {
 		return campo8;
 	}
-
 	public void setCampo8(JTextField campo8) {
 		this.campo8 = campo8;
 	}
-
 	public JTextField getCampo9() {
 		return campo9;
 	}
-
 	public void setCampo9(JTextField campo9) {
 		this.campo9 = campo9;
 	}
-	
 	public ArrayList<JTextField> getTablero() {
 		return tablero;
 	}
-
 	public void setTablero(ArrayList<JTextField> tablero) {
 		this.tablero = tablero;
 	}
-
 	public void reescribirTablero(String[][] matriz){
 		campo1.setText(matriz[0][0].toUpperCase());
 		campo2.setText(matriz[0][1].toUpperCase());

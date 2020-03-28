@@ -18,12 +18,9 @@ public class Controller implements ActionListener{
 		view.getBotonJuego().addActionListener(this);
 		}
 	public void actionPerformed(ActionEvent e) {
-		if(turno>3) {
-			JOptionPane.showMessageDialog(null,"Empate. No pudimos");
-		}
 		if(!verificarEntrada()) {
 			while(!verificarEntrada()) {
-				JOptionPane.showMessageDialog(null, "Por favor escriba solo X");
+				view.mostrarMensaje(1);
 				for(int i=0;i<view.getPanelTablero().getTablero().size();i++) {
 					if(!view.getPanelTablero().getTablero().get(i).getText().equalsIgnoreCase("x")
 							&& !view.getPanelTablero().getTablero().get(i).getText().equalsIgnoreCase("")
@@ -33,7 +30,10 @@ public class Controller implements ActionListener{
 				}
 			}
 		else if(contadorX<contarX()) {
-			JOptionPane.showMessageDialog(null, "Estas colocando mas de una X recueda poner solo 1 por turno");
+			view.mostrarMensaje(2);
+		}
+		else if(contarX()==0) {
+			view.mostrarMensaje(3);
 		}
 		else {
 		buscarGanador();
@@ -42,6 +42,10 @@ public class Controller implements ActionListener{
 		buscarGanador();
 		turno++;
 		contadorX++;
+		}
+		if(turno>4) {
+			view.mostrarMensaje(4);
+			
 		}
 	}
 	public int contarX() {
@@ -65,8 +69,7 @@ public class Controller implements ActionListener{
 		matriz[2][1]=view.getPanelTablero().getCampo8().getText().toUpperCase();
 		matriz[2][2]=view.getPanelTablero().getCampo9().getText().toUpperCase();
 		return matriz;
-	}
-	
+	}	
 	public void buscarGanador() {
 		//Horizontales
 		analizarPosiciones(view.getPanelTablero().getCampo1(),view.getPanelTablero().getCampo2(),view.getPanelTablero().getCampo3());
@@ -80,7 +83,6 @@ public class Controller implements ActionListener{
 		analizarPosiciones(view.getPanelTablero().getCampo1(),view.getPanelTablero().getCampo5(),view.getPanelTablero().getCampo9());
 		analizarPosiciones(view.getPanelTablero().getCampo3(),view.getPanelTablero().getCampo5(),view.getPanelTablero().getCampo7());
 	}
-	
 	public boolean verificarEntrada() {
 			for(int i=0;i<view.getPanelTablero().getTablero().size();i++) {
 				if(!view.getPanelTablero().getTablero().get(i).getText().equalsIgnoreCase("x")
@@ -91,15 +93,30 @@ public class Controller implements ActionListener{
 				}
 			return true;
 			}
-
 	public void analizarPosiciones(JTextField J1,JTextField J2,JTextField J3) {
 		if(J1.getText().equalsIgnoreCase("x") && J2.getText().equalsIgnoreCase("x") && J3.getText().equalsIgnoreCase("x")) {
-			JOptionPane.showMessageDialog(null,"Hmm, me ganaste, ¡qué aburrido!");
+			view.mostrarMensaje(5);
+			
 		}
 		else if(J1.getText().equalsIgnoreCase("o") && J2.getText().equalsIgnoreCase("o") && J3.getText().equalsIgnoreCase("o")) {
-			JOptionPane.showMessageDialog(null,"¡Ja, ja te gane humano!");
+			view.mostrarMensaje(6);
+			
 		}
 	}
+	public View getView() {
+		return view;
+	}
+	public void setView(View view) {
+		this.view = view;
+	}
+	public Computadora getComp() {
+		return comp;
+	}
+	public void setComp(Computadora comp) {
+		this.comp = comp;
+	}
+	
+	
 }
 
 
