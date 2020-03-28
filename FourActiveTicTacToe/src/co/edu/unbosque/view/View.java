@@ -14,7 +14,6 @@ import javax.swing.JPanel;
 public class View extends javax.swing.JFrame {
 	private JButton botonJuego;
 	private PanelTablero panelTablero;
-	private PanelTableroAuxiliar panelTablero1;
 	
 	
 	
@@ -31,9 +30,9 @@ public class View extends javax.swing.JFrame {
     }
     
     public void inicializar() {
-    	panelTablero1 = new PanelTableroAuxiliar();
-		panelTablero1.setBounds(0,0,450,450);
-		add(panelTablero1);
+    	panelTablero = new PanelTablero();
+		panelTablero.setBounds(0,0,450,450);
+		add(panelTablero);
 		botonJuego= new JButton("Juego");
 		botonJuego.setBounds(0,450,450,30);
 		add(botonJuego);
@@ -47,20 +46,13 @@ public class View extends javax.swing.JFrame {
 		this.botonJuego = botonJuego;
 	}
 
+
 	public PanelTablero getPanelTablero() {
 		return panelTablero;
 	}
 
-	public void setPanelTablero(PanelTablero panelTablero) {
+	public void setPanelTablero1(PanelTablero panelTablero) {
 		this.panelTablero = panelTablero;
-	}
-
-	public PanelTableroAuxiliar getPanelTablero1() {
-		return panelTablero1;
-	}
-
-	public void setPanelTablero1(PanelTableroAuxiliar panelTablero1) {
-		this.panelTablero1 = panelTablero1;
 	}  
 	
 }

@@ -11,51 +11,51 @@ import co.edu.unbosque.view.*;
 public class Controller implements ActionListener{
 	View view;
 	Computadora comp;
+	int turno=0;
 	public Controller() {
 		view=new View();
 		view.getBotonJuego().addActionListener(this);
 		}
 	public void actionPerformed(ActionEvent e) {
-		buscarGanador();
-		for(int i=0;i<3;i++) {
-			for(int j=0;j<3;j++) {
-				System.out.print(((view.getPanelTablero1().toString())));	
-			}
-			System.out.println();
+		if(turno>3) {
+			JOptionPane.showMessageDialog(null,"Empate. No pudimos");
 		}
-		//comp=new Computadora(entregarTablero());
-		//view.getPanelTablero1().reescribirTablero(comp.escribirRespuesta());
 		buscarGanador();
+		comp=new Computadora(entregarTablero(),turno);
+		view.getPanelTablero().reescribirTablero(comp.escribirRespuesta());
+		
+		buscarGanador();
+		turno++;
 	}
-	/*public String[][] entregarTablero(){
+	public String[][] entregarTablero(){
 		String matriz[][]= new String [3][3];
-		while(!view.getPanelTablero1().getCampo1().getText().equalsIgnoreCase("x") && !view.getPanelTablero1().getCampo1().getText().equalsIgnoreCase("")){
+		while(!view.getPanelTablero().getCampo1().getText().equalsIgnoreCase("x") && !view.getPanelTablero().getCampo1().getText().equalsIgnoreCase("")){
 			JOptionPane.showMessageDialog(null, "Por favor escriba solo X");
-			view.getPanelTablero1().getCampo1().setText("");
+			view.getPanelTablero().getCampo1().setText("");
 		}
-		matriz[0][0]=view.getPanelTablero1().getCampo1().getText().toUpperCase();
-		matriz[0][1]=view.getPanelTablero1().getCampo2().getText().toUpperCase();
-		matriz[0][2]=view.getPanelTablero1().getCampo3().getText().toUpperCase();
-		matriz[1][0]=view.getPanelTablero1().getCampo4().getText().toUpperCase();
-		matriz[1][1]=view.getPanelTablero1().getCampo5().getText().toUpperCase();
-		matriz[1][2]=view.getPanelTablero1().getCampo6().getText().toUpperCase();
-		matriz[2][0]=view.getPanelTablero1().getCampo7().getText().toUpperCase();
-		matriz[2][1]=view.getPanelTablero1().getCampo8().getText().toUpperCase();
-		matriz[2][2]=view.getPanelTablero1().getCampo9().getText().toUpperCase();
+		matriz[0][0]=view.getPanelTablero().getCampo1().getText().toUpperCase();
+		matriz[0][1]=view.getPanelTablero().getCampo2().getText().toUpperCase();
+		matriz[0][2]=view.getPanelTablero().getCampo3().getText().toUpperCase();
+		matriz[1][0]=view.getPanelTablero().getCampo4().getText().toUpperCase();
+		matriz[1][1]=view.getPanelTablero().getCampo5().getText().toUpperCase();
+		matriz[1][2]=view.getPanelTablero().getCampo6().getText().toUpperCase();
+		matriz[2][0]=view.getPanelTablero().getCampo7().getText().toUpperCase();
+		matriz[2][1]=view.getPanelTablero().getCampo8().getText().toUpperCase();
+		matriz[2][2]=view.getPanelTablero().getCampo9().getText().toUpperCase();
 		return matriz;
-	}*/
+	}
 	public void buscarGanador() {
 		//Horizaontales
-		analizarPosiciones(view.getPanelTablero1().getCampo1(),view.getPanelTablero1().getCampo2(),view.getPanelTablero1().getCampo3());
-		analizarPosiciones(view.getPanelTablero1().getCampo4(),view.getPanelTablero1().getCampo5(),view.getPanelTablero1().getCampo6());
-		analizarPosiciones(view.getPanelTablero1().getCampo7(),view.getPanelTablero1().getCampo8(),view.getPanelTablero1().getCampo9());
+		analizarPosiciones(view.getPanelTablero().getCampo1(),view.getPanelTablero().getCampo2(),view.getPanelTablero().getCampo3());
+		analizarPosiciones(view.getPanelTablero().getCampo4(),view.getPanelTablero().getCampo5(),view.getPanelTablero().getCampo6());
+		analizarPosiciones(view.getPanelTablero().getCampo7(),view.getPanelTablero().getCampo8(),view.getPanelTablero().getCampo9());
 		//verticales
-		analizarPosiciones(view.getPanelTablero1().getCampo1(),view.getPanelTablero1().getCampo4(),view.getPanelTablero1().getCampo7());
-		analizarPosiciones(view.getPanelTablero1().getCampo2(),view.getPanelTablero1().getCampo5(),view.getPanelTablero1().getCampo8());
-		analizarPosiciones(view.getPanelTablero1().getCampo3(),view.getPanelTablero1().getCampo6(),view.getPanelTablero1().getCampo9());
+		analizarPosiciones(view.getPanelTablero().getCampo1(),view.getPanelTablero().getCampo4(),view.getPanelTablero().getCampo7());
+		analizarPosiciones(view.getPanelTablero().getCampo2(),view.getPanelTablero().getCampo5(),view.getPanelTablero().getCampo8());
+		analizarPosiciones(view.getPanelTablero().getCampo3(),view.getPanelTablero().getCampo6(),view.getPanelTablero().getCampo9());
 		//diagonales
-		analizarPosiciones(view.getPanelTablero1().getCampo1(),view.getPanelTablero1().getCampo5(),view.getPanelTablero1().getCampo9());
-		analizarPosiciones(view.getPanelTablero1().getCampo3(),view.getPanelTablero1().getCampo5(),view.getPanelTablero1().getCampo7());
+		analizarPosiciones(view.getPanelTablero().getCampo1(),view.getPanelTablero().getCampo5(),view.getPanelTablero().getCampo9());
+		analizarPosiciones(view.getPanelTablero().getCampo3(),view.getPanelTablero().getCampo5(),view.getPanelTablero().getCampo7());
 	}
 	public void analizarPosiciones(JTextField J1,JTextField J2,JTextField J3) {
 		if(J1.getText().equalsIgnoreCase("x") && J2.getText().equalsIgnoreCase("x") && J3.getText().equalsIgnoreCase("x")) {
