@@ -34,7 +34,6 @@ public class PanelTablero extends JPanel {
 		tablero.add(campo9);
 		for(int i=0;i<tablero.size();i++) {
 			tablero.get(i).setBackground(Color.BLACK);
-			tablero.get(i).setBorder(null);
 			tablero.get(i).setFont(new java.awt.Font("Posicion", 2, 100));
 			tablero.get(i).setForeground(Color.WHITE);
 			tablero.get(i).setHorizontalAlignment(JTextField.CENTER);
@@ -113,6 +112,15 @@ public class PanelTablero extends JPanel {
 	public void setCampo9(JTextField campo9) {
 		this.campo9 = campo9;
 	}
+	
+	public ArrayList<JTextField> getTablero() {
+		return tablero;
+	}
+
+	public void setTablero(ArrayList<JTextField> tablero) {
+		this.tablero = tablero;
+	}
+
 	public void reescribirTablero(String[][] matriz){
 		campo1.setText(matriz[0][0].toUpperCase());
 		campo2.setText(matriz[0][1].toUpperCase());
