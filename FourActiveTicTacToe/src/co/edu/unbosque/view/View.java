@@ -1,15 +1,12 @@
 package co.edu.unbosque.view;
 
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import co.edu.unbosque.controller.Controller;
-
-public class View extends javax.swing.JFrame {
+public class View extends JFrame {
 	private JButton botonJuego;
 	private PanelTablero panelTablero;
-	
-	
 	
     public View() {
     	
