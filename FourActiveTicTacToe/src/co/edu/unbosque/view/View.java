@@ -70,7 +70,12 @@ public class View extends javax.swing.JFrame {
 		
 		}
 	}
-
-	
+	public int repetirJuego() {
+		int codigo=JOptionPane.showConfirmDialog(null, "¿Quieres volver a Jugar?");
+        if (codigo==JOptionPane.YES_OPTION){
+            return 1;
+        }else
+            return 0;
+	}
 }
 

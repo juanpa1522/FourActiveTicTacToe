@@ -32,7 +32,7 @@ public class Controller implements ActionListener{
 		else if(contadorX<contarX()) {
 			view.mostrarMensaje(2);
 		}
-		else if(contarX()==0) {
+		else if(contarX()==0 || contadorX>contarX()) {
 			view.mostrarMensaje(3);
 		}
 		else {
@@ -45,6 +45,8 @@ public class Controller implements ActionListener{
 		}
 		if(turno>4) {
 			view.mostrarMensaje(4);
+			validarNuevoJuego();
+			
 			
 		}
 	}
@@ -96,10 +98,12 @@ public class Controller implements ActionListener{
 	public void analizarPosiciones(JTextField J1,JTextField J2,JTextField J3) {
 		if(J1.getText().equalsIgnoreCase("x") && J2.getText().equalsIgnoreCase("x") && J3.getText().equalsIgnoreCase("x")) {
 			view.mostrarMensaje(5);
+			validarNuevoJuego();
 			
 		}
 		else if(J1.getText().equalsIgnoreCase("o") && J2.getText().equalsIgnoreCase("o") && J3.getText().equalsIgnoreCase("o")) {
 			view.mostrarMensaje(6);
+			validarNuevoJuego();
 			
 		}
 	}
@@ -114,6 +118,17 @@ public class Controller implements ActionListener{
 	}
 	public void setComp(Computadora comp) {
 		this.comp = comp;
+	}
+	public void validarNuevoJuego() {
+		if(view.repetirJuego()==1) {
+			view.dispose();
+			view= new View();
+			view.getBotonJuego().addActionListener(this);
+			turno=0;
+			contadorX=1;
+		}
+		else
+			view.dispose();
 	}
 	
 	
