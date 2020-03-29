@@ -122,10 +122,7 @@ public class Controller implements ActionListener{
 	public void validarNuevoJuego() {
 		if(view.repetirJuego()==1) {
 			view.dispose();
-			view= new View();
-			view.getBotonJuego().addActionListener(this);
-			turno=0;
-			contadorX=1;
+			AplMain.main (null);
 		}
 		else
 			view.dispose();
